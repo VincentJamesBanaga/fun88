@@ -22,7 +22,7 @@ import {
   Others,
 } from "@/components/icons";
 
-export const NAV_LIST: NavItem[] = [
+export const CATEGORY_LIST: NavItem[] = [
   {
     title: "START",
     id: "start",
@@ -95,71 +95,83 @@ export const FOOTER_LIST: FooterItem[] = [
 
 export const GAME_LIST: GameItem[] = [
   {
+    name: "Anaconda Wild 2",
     imagePath: "/images/games/anaconda-wild-2.png",
-    category: "jackpot",
-    provider: "playtech",
+    category: "jackpots",
+    provider: "PT",
   },
   {
+    name: "Aztec Bonus Line",
     imagePath: "/images/games/aztec-bonus-lines.png",
-    category: "jackpot",
-    provider: "playtech",
+    category: "jackpots",
+    provider: "PT",
   },
   {
+    name: "Beach Life",
     imagePath: "/images/games/beach-life.png",
-    category: "",
-    provider: "playtech",
+    category: "new",
+    provider: "PT",
   },
   {
+    name: "Big Bad Wolf",
     imagePath: "/images/games/big-bad-wolf.png",
     category: "live",
-    provider: "playtech",
+    provider: "PT",
   },
   {
+    name: "Book of Egypt",
     imagePath: "/images/games/book-of-egypt.png",
-    category: "",
-    provider: "expanse",
+    category: "slots",
+    provider: "EXPANSE",
   },
   {
+    name: "Crocodile Blitz Xtreme FB",
     imagePath: "/images/games/crocodile-blitz-xtreme-fb.png",
-    category: "",
-    provider: "playtech",
+    category: "tablegames",
+    provider: "PT",
   },
   {
+    name: "Inca Jackpot",
     imagePath: "/images/games/inca-jackpot.png",
-    category: "jackpot",
-    provider: "skywindgroup",
+    category: "jackpots",
+    provider: "RELAX",
   },
   {
+    name: "Maya Jackpot",
     imagePath: "/images/games/maya-jackpot.png",
-    category: "jackpot",
-    provider: "skywindgroup",
+    category: "jackpots",
+    provider: "RELAX",
   },
   {
+    name: "Pirates Power",
     imagePath: "/images/games/pirates-power.png",
-    category: "",
-    provider: "expanse",
+    category: "bingo",
+    provider: "EXPANSE",
   },
   {
+    name: "Pride of Persia",
     imagePath: "/images/games/pride-of-persia.png",
-    category: "",
-    provider: "playtech",
+    category: "new",
+    provider: "PT",
   },
   {
+    name: "Shaolin Crew",
     imagePath: "/images/games/shaolin-crew.png",
-    category: "",
-    provider: "expanse",
+    category: "slots",
+    provider: "EXPANSE",
   },
   {
+    name: "Sugar Rush",
     imagePath: "/images/games/sugar-rush.png",
-    category: "",
-    provider: "pragmaticplay",
+    category: "tablegames",
+    provider: "PRAGMATICPLAY",
   },
 ];
 
 export const PROVIDER_LIST: ProviderItem[] = [
   {
     imagePath: "/images/game-providers/EM.png",
-    provider: "em",
+    provider: "EM",
   },
   {
     imagePath: "/images/game-providers/EVO.png",
@@ -211,7 +223,7 @@ export const PROVIDER_LIST: ProviderItem[] = [
   },
   {
     imagePath: "/images/game-providers/PP.png",
-    provider: "PP",
+    provider: "PRAGMATICPLAY",
   },
   {
     imagePath: "/images/game-providers/PRAGMATICPLAY.png",

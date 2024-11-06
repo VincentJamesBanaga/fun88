@@ -16,3 +16,4 @@ export { default as Start } from "./Start";
 export { default as Table } from "./Table";
 export { default as SearchMenu } from "./SearchMenu";
 export { default as Close } from "./Close";
+export { default as FavoriteOutlined } from "./FavoriteOutlined";

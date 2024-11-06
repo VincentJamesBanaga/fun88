@@ -1,20 +1,41 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, type ChangeEvent } from "react";
 
 // Data
-import { NAV_LIST } from "@/api/data";
+import { CATEGORY_LIST } from "@/api/data";
+
+// Store
+import { useAppDispatch, useAppSelector } from "@/lib/hook";
+import {
+  setSearchValue,
+  setSelectedCategory,
+  setShowGameProvider,
+} from "@/lib/slices/globalSlice";
+
+// Utils
+import { debounce } from "@/utils/debounce";
 
 // Components
 import { SearchBar, Button } from "@/components";
 import { Search, SearchMenu } from "@/components/icons";
 
 const Navbar = () => {
-  const [selected, setSelected] = useState<string>("start");
+  const dispatch = useAppDispatch();
   const [isShowSearch, setIsShowSearch] = useState<boolean>(false);
+  const { selectedCategory } = useAppSelector((state) => state.globalSlice);
+
+  const handleSearch = debounce((searchTerm: string) => {
+    dispatch(setSearchValue(searchTerm));
+  }, 500);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchValue = event.target.value;
+    handleSearch(searchValue);
+  };
 
   return (
-    <>
+    <div className="sticky top-12 bg-white z-10">
       <nav className="flex flex-row items-center justify-evenly h-auto text-secondary">
         <div className="flex flex-row items-center">
           <Button
@@ -30,8 +51,8 @@ const Navbar = () => {
         </div>
         <div className="border-l-[1px] border-neutral-300 h-7 mx-2" />
         <div className="hide-scrollbar flex items-center gap-1 overflow-x-auto overflow-y-hidden snap-proximity snap-x">
-          {NAV_LIST.map(({ title, id, Icon }) => {
-            const isActive = id === selected;
+          {CATEGORY_LIST.map(({ title, id, Icon }) => {
+            const isActive = id === selectedCategory;
             return (
               <Button
                 key={id}
@@ -41,7 +62,7 @@ const Navbar = () => {
                   isActive ? "text-primary border-b-2 border-primary" : ""
                 }`}
                 onClick={() => {
-                  setSelected(id);
+                  dispatch(setSelectedCategory(id));
                 }}
               />
             );
@@ -50,14 +71,21 @@ const Navbar = () => {
       </nav>
       {isShowSearch && (
         <div className="flex flex-row gap-3 p-2 text-secondary w-full">
-          <SearchBar placeholder="Search games..." className="flex-1" />
+          <SearchBar
+            placeholder="Search games..."
+            className="flex-1"
+            onChange={handleChange}
+          />
           <Button
             icon={<SearchMenu className="h-5 w-5" />}
             className="border border-secondary rounded-md"
+            onClick={() => {
+              dispatch(setShowGameProvider(true));
+            }}
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

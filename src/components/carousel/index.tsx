@@ -30,7 +30,7 @@ const Carousel = () => {
   }, [totalSlides]);
 
   return (
-    <div className="relative flex flex-col gap-2 w-full p-3">
+    <div className="relative flex flex-col gap-2 w-full p-3 z-0">
       <div className="relative overflow-hidden rounded-lg">
         <div
           className="carousel-wrapper flex transition-transform duration-500 ease-in-out"

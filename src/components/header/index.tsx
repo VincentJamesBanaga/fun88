@@ -6,7 +6,7 @@ import { User, Wallet } from "@/components/icons";
 
 const Header = () => {
   return (
-    <header className="flex flex-row justify-between items-center h-12 shadow-md px-4">
+    <header className="sticky top-0 flex flex-row justify-between items-center h-12 shadow-md px-4 bg-white z-10">
       <div className="flex flex-row gap-3 items-center">
         <ImageWrapper
           src="/assets/header/menu.svg"

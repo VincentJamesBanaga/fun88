@@ -1,10 +1,10 @@
 import React from "react";
 
 // Components
-import { Empty } from "@/components";
+import GameFavorite from "./GameFavorite";
 
 const Favorites = () => {
-  return <Empty />;
+  return <GameFavorite />;
 };
 
 export default Favorites;

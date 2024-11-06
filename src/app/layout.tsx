@@ -4,6 +4,9 @@ import localFont from "next/font/local";
 // Style
 import "./globals.css";
 
+// Redux
+import StoreProvider from "./StoreProvider";
+
 // Components
 import { Header, Footer } from "@/components";
 
@@ -35,11 +38,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)]">
-          <Header />
-          <main className="flex flex-1 flex-col">{children}</main>
-          <Footer />
-        </div>
+        <StoreProvider>
+          <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)]">
+            <main className="flex flex-1 flex-col">
+              <Header />
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </StoreProvider>
       </body>
     </html>
   );
