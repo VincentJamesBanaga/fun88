@@ -1,6 +1,9 @@
 "use client";
 
-import React, { useState, type ChangeEvent } from "react";
+import React, { useState, useCallback, type ChangeEvent } from "react";
+
+// Loadash
+import { debounce } from "lodash";
 
 // Data
 import { CATEGORY_LIST } from "@/api/data";
@@ -13,9 +16,6 @@ import {
   setShowGameProvider,
 } from "@/lib/slices/globalSlice";
 
-// Utils
-import { debounce } from "@/utils/debounce";
-
 // Components
 import { SearchBar, Button } from "@/components";
 import { Search, SearchMenu } from "@/components/icons";
@@ -25,9 +25,12 @@ const Navbar = () => {
   const [isShowSearch, setIsShowSearch] = useState<boolean>(false);
   const { selectedCategory } = useAppSelector((state) => state.globalSlice);
 
-  const handleSearch = debounce((searchTerm: string) => {
-    dispatch(setSearchValue(searchTerm));
-  }, 500);
+  const handleSearch = useCallback(
+    debounce((searchTerm: string) => {
+      dispatch(setSearchValue(searchTerm));
+    }, 500),
+    []
+  );
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value;
