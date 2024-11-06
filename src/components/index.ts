@@ -2,3 +2,8 @@ export { default as Header } from "@/components/header";
 export { default as ImageWrapper } from "@/components/image";
 export { default as Footer } from "@/components/footer";
 export { default as Carousel } from "@/components/carousel";
+export { default as Navbar } from "@/components/navbar";
+export { default as Button } from "@/components/button";
+export { default as SearchBar } from "@/components/searchbar";
+export { default as Empty } from "@/components/empty";
+export { default as Drawer } from "@/components/drawer";

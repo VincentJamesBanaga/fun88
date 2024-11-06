@@ -30,7 +30,7 @@ const Carousel = () => {
   }, [totalSlides]);
 
   return (
-    <div className="relative w-full p-3">
+    <div className="relative flex flex-col gap-2 w-full p-3">
       <div className="relative overflow-hidden rounded-lg">
         <div
           className="carousel-wrapper flex transition-transform duration-500 ease-in-out"
@@ -43,11 +43,14 @@ const Carousel = () => {
               return (
                 <div
                   key={id}
-                  className="carousel-item flex-shrink-0 w-full h-48 bg-gray-300"
+                  className="carousel-item flex-shrink-0 w-full h-44 bg-gray-300"
                 >
                   <ImageWrapper
                     src="/images/banner-bg.png"
                     alt={id}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     className="w-full h-full sm:h-screen"
                   />
                 </div>
@@ -70,7 +73,7 @@ const Carousel = () => {
           })}
         </div>
       </div>
-      <div className="flex flex-row gap-2 items-center mt-2">
+      <div className="flex flex-row gap-2 items-center">
         <ImageWrapper
           src="/assets/bell.svg"
           alt="bell"

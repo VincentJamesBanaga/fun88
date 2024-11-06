@@ -4,7 +4,7 @@ export type FooterItemId =
   | "sports"
   | "favorites"
   | "invite"
-  | "casino"
+  | "casinolive"
   | "cashier";
 
 export interface FooterItem {
