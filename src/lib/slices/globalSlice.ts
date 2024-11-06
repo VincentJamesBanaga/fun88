@@ -9,6 +9,10 @@ type DataType = {
   selectedCategory: string;
   selectedProvider: string[];
   favorites: GameItem[];
+  cacheData: {
+    gameList: boolean;
+    gameProvider: boolean;
+  };
 };
 
 const initialState: DataType = {
@@ -17,6 +21,10 @@ const initialState: DataType = {
   selectedCategory: "start",
   selectedProvider: [],
   favorites: [],
+  cacheData: {
+    gameList: false,
+    gameProvider: false,
+  },
 };
 
 export const globalSlice = createSlice({
@@ -43,6 +51,12 @@ export const globalSlice = createSlice({
         state.favorites = state.favorites.concat(item);
       }
     },
+    setCacheGameList(state, action) {
+      state.cacheData.gameList = action.payload;
+    },
+    setCacheGameProvider(state, action) {
+      state.cacheData.gameProvider = action.payload;
+    },
   },
 });
 
@@ -52,4 +66,6 @@ export const {
   setSelectedCategory,
   setSelectedProvider,
   setFavorites,
+  setCacheGameList,
+  setCacheGameProvider,
 } = globalSlice.actions;

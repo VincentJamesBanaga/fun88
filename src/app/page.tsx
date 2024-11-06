@@ -16,9 +16,11 @@ const Home = () => {
       <Carousel />
       <Navbar />
       <GameList />
-      <Drawer title="Game Provider" isOpen={showGameProvider}>
-        <GameProvider />
-      </Drawer>
+      {showGameProvider && (
+        <Drawer title="Game Provider" isOpen={showGameProvider}>
+          <GameProvider />
+        </Drawer>
+      )}
     </>
   );
 };

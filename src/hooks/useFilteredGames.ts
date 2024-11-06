@@ -1,16 +1,17 @@
 import { useMemo } from "react";
 
-// Data
-import { GAME_LIST } from "@/api/data";
+// Schema
+import { GameItem } from "@/schema/game";
 
 const useFilteredGames = (
+  data: GameItem[] = [],
   filterName: string = "",
   filterCategory: string = "",
   filterProvider: string[] = []
 ) => {
   const filteredGames = useMemo(() => {
     const filterGames = () => {
-      return GAME_LIST.filter(({ name, category, provider }) => {
+      return [...data].filter(({ name, category, provider }) => {
         const isNameMatch = filterName
           ? name.toLowerCase().includes(filterName.toLowerCase())
           : true;
@@ -34,7 +35,7 @@ const useFilteredGames = (
     };
 
     return filterGames();
-  }, [filterName, filterCategory, filterProvider]);
+  }, [data, filterName, filterCategory, filterProvider]);
 
   return filteredGames;
 };
